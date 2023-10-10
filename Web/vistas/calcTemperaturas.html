@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/vistas.css" />
+    <title>Calculadora Temperatura</title>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <h1>Bienvenido <span id="usuarioActivo"></span></h1>
+        <ul>
+          <li><a href="/vistas/inicio.html">Inicio</a></li>
+          <li><a href="/vistas/calculadora.html">Calculadora</a></li>
+          <li><a href="/vistas/calcDivisas.html">Calculo de Divisas</a></li>
+          <li>
+            <a href="#">Calculo de Temperaturas</a>
+          </li>
+        </ul>
+        <button id="cerrar" type="submit">Cerrar Sesion</button>
+      </nav>
+    </header>
+    <main>
+      <div class="contenedor">
+        <div class="calculadora">
+            <h1></h1>
+          <div class="entrada-control">
+            <label for="num1">Ingrese una temperatura</label>
+            <input id="num1" type="number" name="num1" required placeholder="°F"/>
+          </div>
+          <div class="entrada-control">
+            <label for="result">Resultado en °C</label>
+            <input id="result" type="number" name="result" disabled />
+          </div>
+          <button class="boton" id="convertir" type="submit">Convertir</button>
+        </div>
+      </div>
+    </main>
+    <footer>
+      <small>Creado por Arisneudy Santana Pozo &copy;2023</small>
+    </footer>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        cargarNombreUsuario();
+      });
+    </script>
+    <script src="/js/script.js"></script>
+  </body>
+</html>

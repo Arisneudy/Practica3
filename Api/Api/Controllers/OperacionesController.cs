@@ -14,7 +14,7 @@ namespace Api.Controllers
             this.operacionesFachada = operacionesFachada;
         }
 
-        [HttpPost]
+        [HttpGet]
         [Route("sumar")]
         public ActionResult<double> Sumar(double num1, double num2)
         {
@@ -22,7 +22,7 @@ namespace Api.Controllers
             return resultado;
         }
 
-        [HttpPost]
+        [HttpGet]
         [Route("dolar-a-dominicano")]
         public ActionResult<double> DolarADominicano(double cantidad)
         {
@@ -30,7 +30,7 @@ namespace Api.Controllers
             return conversion;
         }
 
-        [HttpPost]
+        [HttpGet]
         [Route("farenheit-a-celcius")]
         public ActionResult<double> FarenheitACelcius(double temp)
         {

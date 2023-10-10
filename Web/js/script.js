@@ -1,10 +1,9 @@
-// Variables
+// Definición de variables y funciones
 const loginURL = "https://localhost:7097/autenticacion/login";
 const registroURL = "https://localhost:7097/autenticacion/registro";
 const formLogin = document.querySelector(".form-login");
 const formRegistro = document.querySelector(".form-register");
 
-// Función para mostrar el formulario de inicio de sesión y ocultar el de registro
 function redirigirAlInicio() {
   formRegistro.style.opacity = "0";
   setTimeout(() => {
@@ -14,7 +13,6 @@ function redirigirAlInicio() {
   }, 500);
 }
 
-// Funcion para manejar el inicio de sesion exitoso
 function inicioSesionExitoso(nombreUsuario) {
   localStorage.setItem("nombreUsuario", nombreUsuario);
   alert("Inicio de sesión exitoso");
@@ -22,13 +20,11 @@ function inicioSesionExitoso(nombreUsuario) {
   document.getElementById("usuarioActivo").textContent = nombreUsuario;
 }
 
-// Función para manejar el registro exitoso
 function registroExitoso() {
-  document.getElementById("form-login").reset();
+  formLogin.reset();
   redirigirAlInicio();
 }
 
-// Función para cargar el nombre de usuario si esta en localStorage
 function cargarNombreUsuario() {
   const nombreUsuario = localStorage.getItem("nombreUsuario");
   if (nombreUsuario) {
@@ -36,19 +32,26 @@ function cargarNombreUsuario() {
   }
 }
 
-// Funcion para cerrar sesion
 function cerrarSesion() {
   localStorage.removeItem("nombreUsuario");
   window.location.href = "/index.html";
 }
 
-// Consumiendo API - parte login - boton iniciar sesion
+// Eventos
+document.addEventListener("DOMContentLoaded", function () {
+  cargarNombreUsuario();
+});
+
+document.getElementById("cerrar-sesion").addEventListener("click", (e) => {
+  cerrarSesion();
+});
+
+// Api - parte login
 document.getElementById("login").addEventListener("click", (e) => {
   e.preventDefault();
   const user = document.getElementById("user-login").value;
   const password = document.getElementById("password-login").value;
 
-  // Verificar si los campos están llenos
   if (user.trim() === "" || password.trim() === "") {
     alert("Por favor, completa todos los campos.");
     return;
@@ -73,7 +76,7 @@ document.getElementById("login").addEventListener("click", (e) => {
     .catch((error) => console.log(error));
 });
 
-// Consumiendo API - parte registro - boton registrarse
+// Api - parte registro
 document.getElementById("registrarse").addEventListener("click", (e) => {
   e.preventDefault();
   const user = document.getElementById("user-registro").value;
@@ -81,7 +84,6 @@ document.getElementById("registrarse").addEventListener("click", (e) => {
   const email = document.getElementById("email-registro").value;
   const password = document.getElementById("password-registro").value;
 
-  // Verificar si los campos están llenos
   if (
     user.trim() === "" ||
     nombre.trim() === "" ||
@@ -119,7 +121,34 @@ document.getElementById("registrarse").addEventListener("click", (e) => {
     .catch((error) => console.log(error));
 });
 
-// Eventos para cambiar entre formularios
+// Api - parte calculadora
+document.getElementById("sumar").addEventListener("click", () => {
+  const num1 = parseFloat(document.getElementById("num1").value);
+  const num2 = parseFloat(document.getElementById("num2").value);
+
+  if (isNaN(num1) || isNaN(num2)) {
+    alert("Por favor, ingrese números válidos.");
+    return;
+  }
+
+  const url = `https://localhost:7097/operaciones/sumar?num1=${num1}&num2=${num2}`;
+
+  fetch(url)
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Error en la solicitud.");
+      }
+      return response.json();
+    })
+    .then((result) => {
+      document.getElementById("result").value = result.toString();
+    })
+    .catch((error) => {
+      console.error("Error al realizar la suma: " + error);
+      alert("Error al realizar la suma.");
+    });
+});
+
 document.getElementById("btn-registro").addEventListener("click", (e) => {
   formRegistro.style.opacity = "1";
   formLogin.style.opacity = "0";
@@ -132,6 +161,3 @@ document.getElementById("btn-registro").addEventListener("click", (e) => {
 document.getElementById("btn-login").addEventListener("click", (e) => {
   redirigirAlInicio();
 });
-
-// Cargar el nombre de usuario si está en localStorage
-cargarNombreUsuario();
