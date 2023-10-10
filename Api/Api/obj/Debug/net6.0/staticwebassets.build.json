@@ -1,0 +1,54 @@
+{
+  "Version": 1,
+  "Hash": "6oorEyHTc8EpoaNlbtXBSOgjJDAz5iNhIPGotOJsGEU=",
+  "Source": "Api",
+  "BasePath": "_content/Api",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "Api\\wwwroot",
+      "Source": "Api",
+      "ContentRoot": "C:\\Users\\Arisn\\Desktop\\Practica 3 - Arisneudy Santana Pozo (2022-1967)\\Api\\Api\\wwwroot\\",
+      "BasePath": "_content/Api",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "C:\\Users\\Arisn\\Desktop\\Practica 3 - Arisneudy Santana Pozo (2022-1967)\\Api\\Api\\wwwroot\\Datos\\Log.txt",
+      "SourceId": "Api",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Arisn\\Desktop\\Practica 3 - Arisneudy Santana Pozo (2022-1967)\\Api\\Api\\wwwroot\\",
+      "BasePath": "_content/Api",
+      "RelativePath": "Datos/Log.txt",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Datos\\Log.txt"
+    },
+    {
+      "Identity": "C:\\Users\\Arisn\\Desktop\\Practica 3 - Arisneudy Santana Pozo (2022-1967)\\Api\\Api\\wwwroot\\Datos\\Usuarios.json",
+      "SourceId": "Api",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Arisn\\Desktop\\Practica 3 - Arisneudy Santana Pozo (2022-1967)\\Api\\Api\\wwwroot\\",
+      "BasePath": "_content/Api",
+      "RelativePath": "Datos/Usuarios.json",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Datos\\Usuarios.json"
+    }
+  ]
+}
