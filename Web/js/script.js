@@ -131,17 +131,23 @@ document.getElementById("sumar").addEventListener("click", () => {
     return;
   }
 
-  const url = `https://localhost:7097/operaciones/sumar?num1=${num1}&num2=${num2}`;
+  const requestOptions = {
+    method: "GET",
+    redirect: "follow",
+  };
 
-  fetch(url)
+  fetch(
+    `https://localhost:7097/operaciones/sumar?num1=${num1}&num2=${num2}`,
+    requestOptions
+  )
     .then((response) => {
       if (!response.ok) {
         throw new Error("Error en la solicitud.");
       }
-      return response.json();
+      return response.text();
     })
     .then((result) => {
-      document.getElementById("result").value = result.toString();
+      document.getElementById("result").value = result;
     })
     .catch((error) => {
       console.error("Error al realizar la suma: " + error);
